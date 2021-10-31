@@ -24,7 +24,7 @@
 <meta property="og:description" content="浅谈Jordan测度​                                                                                                      —王祉祺整理于2021年秋 概念的引入​    若尔当测度的概念是平面图形的面积和立体图形体积概念的推广，所以为了给出一般欧氏空间中点集的若尔当测度的定义，需要先搞清楚平面图">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-10-31T08:44:58.000Z">
-<meta property="article:modified_time" content="2021-10-31T08:45:47.278Z">
+<meta property="article:modified_time" content="2021-10-31T08:47:26.949Z">
 <meta property="article:author" content="秋知桦">
 <meta property="article:tag" content="测度">
 <meta name="twitter:card" content="summary_large_image">
@@ -453,6 +453,48 @@
 
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
 
 
 

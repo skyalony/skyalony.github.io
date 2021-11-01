@@ -209,7 +209,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.1k 字
+      2.4k 字
     </span>
   
 
@@ -218,7 +218,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3 分钟
+      7 分钟
     </span>
   
 
@@ -279,28 +279,13 @@
 <h4 id="Beta函数与Gamma函数的关系"><a href="#Beta函数与Gamma函数的关系" class="headerlink" title="Beta函数与Gamma函数的关系"></a>Beta函数与Gamma函数的关系</h4><ul>
 <li>$\mathrm{B}(p, q)=\frac{\Gamma(p) \Gamma(q)}{\Gamma(p+q)}, \quad p&gt;0, q&gt;0$</li>
 </ul>
-<script type="math/tex; mode=display">
-\begin{aligned}
-\Gamma(p) \Gamma(q) &=4 \int_{0}^{+\infty} s^{2 p-1} \mathrm{e}^{-s^{2}} \mathrm{~d} s \int_{0}^{+\infty} t^{2 q-1} \mathrm{e}^{-t^{2}} \mathrm{~d} t \\
-&=4 \iint_{\Omega} s^{2 p-1} \mathrm{e}^{-s^{2}} t^{2 q-1} \mathrm{e}^{-t^{2}} \mathrm{~d} s\mathrm{~d}t\\
-&=4 \iint\limits_{0 \leqslant r<+\infty,\\0 \leqslant \theta<+\infty} r^{2(p+q)-1} e^{-r^{2}} \cos ^{2 p-1} \theta \sin ^{2 q-1} \theta \mathrm{d} r \mathrm{~d} \theta \\
-&=\left(2 \int_{0}^{\pi / 2} \cos ^{2 p-1} \theta \sin ^{2 q-1} \theta \mathrm{d} \theta\right)\left(2 \int_{0}^{+\infty} r^{2(p+q)-1} \mathrm{e}^{-r^{2}} \mathrm{~d} r\right) \\
-&=\mathrm{B}(p, q) \Gamma(p+q)
-\end{aligned}</script><h4 id="Legendre公式"><a href="#Legendre公式" class="headerlink" title="Legendre公式"></a>Legendre公式</h4><script type="math/tex; mode=display">
-\Gamma(s) \Gamma\left(s+\frac{1}{2}\right)=\frac{\sqrt{\pi}}{2^{2 s-1}} \Gamma(2 s)</script><script type="math/tex; mode=display">
-\begin{aligned}
-\mathrm{B}(s, s)&=\int_{0}^{1} x^{s-1}(1-x)^{s-1} \mathrm{~d} x\\&=\int_{0}^{1}\left[\frac{1}{4}-\left(\frac{1}{2}-x\right)^{2}\right]^{s-1} \mathrm{~d} x\\
-&=2 \int_{0}^{\frac{1}{2}}\left[\frac{1}{4}-\left(\frac{1}{2}-x\right)^{2}\right]^{s-1} \mathrm{~d} x\\
-&=\frac{1}{2^{2 s-1}} \int_{0}^{1}(1-t)^{s-1} t^{-\frac{1}{2}} \mathrm{~d} t\\&=\frac{1}{2^{2 s-1}} \mathrm{~B}\left(\frac{1}{2}, s\right)
-\end{aligned}</script><p>于是有：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-\frac{\Gamma(s) \Gamma(s)}{\Gamma(2 s)}&=\frac{1}{2^{2 s-1}} \frac{\Gamma\left(\frac{1}{2}\right) \Gamma(s)}{\Gamma\left(s+\frac{1}{2}\right)}\\&=\frac{1}{2^{2 s-1}} \frac{\sqrt{\pi} \Gamma(s)}{\Gamma\left(s+\frac{1}{2}\right)}
-\end{aligned}</script><p>化简即得。</p>
-<h4 id="余元公式"><a href="#余元公式" class="headerlink" title="余元公式"></a>余元公式</h4><script type="math/tex; mode=display">
-\Gamma(s) \Gamma(1-s)=\frac{\pi}{\sin \pi s}, \quad 0<s<1</script><p>遇到困难，摆大烂~</p>
-<h4 id="Stirling公式"><a href="#Stirling公式" class="headerlink" title="Stirling公式"></a>Stirling公式</h4><script type="math/tex; mode=display">
-\Gamma(s+1)=\sqrt{2 \pi s}\left(\frac{s}{\mathrm{e}}\right)^{s} \mathrm{e}^{\frac{e}{12 s}}, s>0,0<\theta<1</script>
+<p>$$<br>\begin{aligned}<br>\Gamma(p) \Gamma(q) &amp;=4 \int_{0}^{+\infty} s^{2 p-1} \mathrm{e}^{-s^{2}} \mathrm{<del>d} s \int_{0}^{+\infty} t^{2 q-1} \mathrm{e}^{-t^{2}} \mathrm{</del>d} t \<br>&amp;=4 \iint_{\Omega} s^{2 p-1} \mathrm{e}^{-s^{2}} t^{2 q-1} \mathrm{e}^{-t^{2}} \mathrm{<del>d} s\mathrm{</del>d}t\<br>&amp;=4 \iint\limits_{0 \leqslant r&lt;+\infty,\0 \leqslant \theta&lt;+\infty} r^{2(p+q)-1} e^{-r^{2}} \cos ^{2 p-1} \theta \sin ^{2 q-1} \theta \mathrm{d} r \mathrm{<del>d} \theta \<br>&amp;=\left(2 \int_{0}^{\pi / 2} \cos ^{2 p-1} \theta \sin ^{2 q-1} \theta \mathrm{d} \theta\right)\left(2 \int_{0}^{+\infty} r^{2(p+q)-1} \mathrm{e}^{-r^{2}} \mathrm{</del>d} r\right) \<br>&amp;=\mathrm{B}(p, q) \Gamma(p+q)<br>\end{aligned}<br>$$</p>
+<h4 id="Legendre公式"><a href="#Legendre公式" class="headerlink" title="Legendre公式"></a>Legendre公式</h4><p>$$<br>\Gamma(s) \Gamma\left(s+\frac{1}{2}\right)=\frac{\sqrt{\pi}}{2^{2 s-1}} \Gamma(2 s)<br>$$</p>
+<p>$$<br>\begin{aligned}<br>\mathrm{B}(s, s)&amp;=\int_{0}^{1} x^{s-1}(1-x)^{s-1} \mathrm{<del>d} x\&amp;=\int_{0}^{1}\left[\frac{1}{4}-\left(\frac{1}{2}-x\right)^{2}\right]^{s-1} \mathrm{</del>d} x\<br>&amp;=2 \int_{0}^{\frac{1}{2}}\left[\frac{1}{4}-\left(\frac{1}{2}-x\right)^{2}\right]^{s-1} \mathrm{<del>d} x\<br>&amp;=\frac{1}{2^{2 s-1}} \int_{0}^{1}(1-t)^{s-1} t^{-\frac{1}{2}} \mathrm{</del>d} t\&amp;=\frac{1}{2^{2 s-1}} \mathrm{~B}\left(\frac{1}{2}, s\right)<br>\end{aligned}<br>$$<br>于是有：<br>$$<br>\begin{aligned}<br>\frac{\Gamma(s) \Gamma(s)}{\Gamma(2 s)}&amp;=\frac{1}{2^{2 s-1}} \frac{\Gamma\left(\frac{1}{2}\right) \Gamma(s)}{\Gamma\left(s+\frac{1}{2}\right)}\&amp;=\frac{1}{2^{2 s-1}} \frac{\sqrt{\pi} \Gamma(s)}{\Gamma\left(s+\frac{1}{2}\right)}<br>\end{aligned}<br>$$<br>化简即得。</p>
+<h4 id="余元公式"><a href="#余元公式" class="headerlink" title="余元公式"></a>余元公式</h4><p>$$<br>\Gamma(s) \Gamma(1-s)=\frac{\pi}{\sin \pi s}, \quad 0&lt;s&lt;1<br>$$</p>
+<p>遇到困难，摆大烂~</p>
+<h4 id="Stirling公式"><a href="#Stirling公式" class="headerlink" title="Stirling公式"></a>Stirling公式</h4><p>$$<br>\Gamma(s+1)=\sqrt{2 \pi s}\left(\frac{s}{\mathrm{e}}\right)^{s} \mathrm{e}^{\frac{e}{12 s}}, s&gt;0,0&lt;\theta&lt;1<br>$$</p>
+
             </div>
             <hr>
             <div>

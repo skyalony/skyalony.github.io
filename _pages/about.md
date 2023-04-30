@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-I'm a third year undergraduate student from [School of Economics](http://eco.hust.edu.cn/),[HUST](https://www.hust.edu.cn/).My research interest includes applied microeconometrics and causal inference. 
+I'm a third year undergraduate student from [School of Economics, HUST](http://eco.hust.edu.cn/), major in Economic Statistics.My research interest includes labor economics, enviromental economics, development economics and coporate finance. 
 
 you can find my CV here:[zhiqi's Curriculum Vitae](.../assets/Curriculum_Vitae.pdf)
 

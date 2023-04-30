@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>基本面量化投资策略</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="王祉祺" />
+    <meta name="date" content="2023-04-25" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# 基本面量化投资策略
+]
+.author[
+### 王祉祺
+]
+.institute[
+### 华中科技大学经济学院
+]
+.date[
+### 2023-04-25
+]
+
+---
+
+
+
+
+class: inverse center middle
+
+# 什么是基本面量化投资？
+
+---
+## 量化投资 VS 价值投资
+
+长期以来，我们将股票投资粗略分为基本面投资和量化投资。二者曾经“水火不融”。
+
+- 以数据挖掘为特点的量化投资😎
+
+  - 优点：很酷,好像真的在用数据说话(
+  
+  - 缺点：挖出来的因子往往缺乏可解释性
+  
+  
+- 以基本面分析为代表的价值投资😆
+
+  - 优点：比较符合常识(
+  
+  - 缺点：现代社会每天信息量太大，客观上难以分析与判断
+
+---
+## 投资本就没有标准策略
+
+ 越来越多的量化投资者把基本面纳入选股模型，也有越来越多的基本面投资者用量化方式筛选股票池，**二者相互借鉴，界限逐渐模糊**。
+
+ 本书主要介绍的就是基本面量化投资。
+ 
+---
+## 作者基本检验方法-1
+
+- 全部股票包含T日（执行日或基准日，在本书中主要指月度最后一个交易日）正在上市和已经退市的所有股票。
+
+- 整体股票是在T日全部股票的基础上，通过以下步骤获取：
+  - 第一步，剔除市值最小的15%的微型股票；
+  - 第二步，过滤掉T日停牌交易和T日之前已经退市的股票；
+  - 第三步，过滤掉带*号的股票或ST股票；
+  - 第四步，过滤掉新股和次新股，仅保留上市时间超过180个自然日的股票。
+  
+  经过上述4个步骤，留下来的就是整体股票。
+
+---
+
+## 作者基本检验方法-2
+
+而在整体股票中，我们又做了进一步区分：
+
+- 大盘股是整体股票中市值从大到小**排名在前16%**的股票。
+
+- 超级大盘股是整体股票中市值从大到小**排名在前6%**的股票。
+
+- 超级小盘股是整体股票中市值从大到小**排名在后20%**的股票。
+
+
+---
+## 时间跨度
+- 时间跨度需要满足3个条件：
+  - 第一，必须**完整地经历牛熊周期**，只经历牛市不行，只经历熊市也不行。
+  
+  - 第二，股票数量必须**满足启动量化回测的最低数量**。如果采用五分位法，股票池的最低数量为50只，如果采用十分位法，股票池的最低数量为100只。
+  
+  - 第三，在满足前述两个条件的基础上，**选择最大化时长**。
+  
+  作者最终选定了从1998年12月31日到2020年12月31日共22年的时间跨度。该时间区间正好全部满足了上面3个条件：完整地经历三轮牛市和三轮熊市，整体股票数量和大盘股票数量都满足十分位法和五分位法的最低要求，时间区间上横跨22年。
+  
+---
+## 最终筛选结果（节选）
+
+
+| 日期       | 全部股票数量 | 整体股票数量 | 整体股票数量占比（%） | 大盘股数量 | 超级大盘股数量 |
+| ---------- | :----------: | :----------: | :-------------------: | :--------: | :------------: |
+| 2009/12/31 |     1698     |     1223     |         72.03         |    196     |       73       |
+| 2010/12/31 |     2043     |     1466     |         71.76         |    235     |       88       |
+| 2011/12/30 |     2322     |     1745     |         75.15         |    279     |      105       |
+| 2012/12/31 |     2475     |     1965     |         79.39         |    314     |      118       |
+| 2013/12/31 |     2471     |     1999     |         80.9          |    320     |      120       |
+| 2014/12/31 |     2595     |     1939     |         74.72         |    310     |      116       |
+| 2015/12/31 |     2811     |     2159     |         76.81         |    345     |      130       |
+| 2016/12/30 |     3037     |     2249     |         74.05         |    360     |      135       |
+| 2017/12/29 |     3470     |     2569     |         74.03         |    411     |      154       |
+| 2018/12/28 |     3568     |     2936     |         82.29         |    470     |      176       |
+
+---
+## 上证综指
+.center[![](.\基本面量化投资_files\szzs.png)]
+
+---
+## 调仓策略
+
+- 本书模型全部使用**时点数据**。
+
+- 建仓和调仓时，投资标的的权重设置为**等权重**。
+  - 也就是说，如果标的数量为N，则每个标的权重为1/N。
+
+- 在交易频率和持有时长方面，设定为**1年**。
+
+- 在股票分红方面，作者采用**红利再投资**的处理方法。
+
+- 在获取模拟净值方面，为了剔除投资的月度效应，以一种公平的方式考虑每个月份的投资收益，作者设计的方案为：
+
+  - 投资策略**每月调仓，但每次只调整1/12的仓位**，一年下来共调整了100%仓位。
+  
+---
+## 作者结论总结
+
+- 小盘股
+
+- 低市盈(净、销、现)率
+
+- 低企业价值倍数
+
+- 高股息率
+
+- 高成长性
+
+- 高资本回报率
+
+- 高利润率
+
+
+---
+## 小盘股
+
+.center[![：scale 90%](.\基本面量化投资_files\市值因子.png)]
+
+---
+### 按市值分位
+
+&lt;br&gt;
+
+|              | 10万元初始投资的最终结果（万元） | 年复合收益率（%） | 标准差（%） | 下行标准差（%） | 最大回撤 （%） | 夏普比率（无风险利 率=5%） | 索提诺比率（无风险利率 =5%） |
+| :----------: | :------------------------------: | :---------------: | :---------: | :-------------: | :------------: | :------------------------: | :--------------------------: |
+| 10pct |              201.19              |       14.86       |    34.44    |      19.16      |     -74.41     |            0.29            |             0.51             |
+| 20pct |              139.80              |       12.95       |    34.29    |      19.33      |     -72.92     |            0.23            |             0.41             |
+| 30pct |              112.48              |       11.82       |    33.8     |      19.44      |     -71.99     |            0.20            |             0.35             |
+| 40pct |              83.47               |       10.29       |    33.41    |      19.35      |     -71.72     |            0.16            |             0.27             |
+| 50pct |              77.78               |       9.93        |    32.91    |      19.26      |     -69.2      |            0.15            |             0.26             |
+
+---
+### 按市值分位-续
+
+&lt;br&gt;
+
+|              | 10万元初始投资的最终结果（万元） | 年复合收益率（%） | 标准差（%） | 下行标准差（%） | 最大回撤 （%） | 夏普比率（无风险利 率=5%） | 索提诺比率（无风险利率 =5%） |
+| :----------: | :------------------------------: | :---------------: | :---------: | :-------------: | :------------: | :------------------------: | :--------------------------: |
+| 60pct |              60.18               |       8.64        |    32.29    |      19.3       |     68.93      |            0.11            |             0.19             |
+| 70pct |              57.33               |       8.39        |    31.71    |      19.06      |     -69.51     |            0.11            |             0.18             |
+| 80pct |              57.76               |       8.43        |    30.70    |      18.56      |     -69.81     |            0.11            |             0.18             |
+| 90pct |              68.77               |       9.31        |    30.17    |      18.55      |     -70.31     |            0.14            |             0.23             |
+| 100pct |              51.83               |       7.89        |    28.48    |      17.74      |     -69.41     |            0.10            |             0.16             |
+
+---
+## 市盈率
+
+中国股票市盈率第一分位的表现落后于第二、三分位。这与美国的结论并不相同
+
+导致该现象的原因可能有：
+- 第一，中国投资者不太成熟，并没有完全按照经济学中“理性人”的假设去做投资，价值投资理念的不完善导致市盈率在反映公司的发展潜力和获利能力方面具有局限性；
+
+- 第二，市场长期不关注某些低估值的股票，这些股票的估值或将在可见的未来持续保持当前低估值水平。持续低估值，意味着估值没有提升空间，股价上行空间有限或者几乎没有上行空间。
+
+在投资实践中，一定要规避持续低估值的公司，免得白白浪费机会成本。
+
+---
+## 警惕低估值陷阱
+
+&gt;1929年，费雪满仓买入3只被低估的股票，其中一只的市盈率低到不可思议的地步。到1932年，3只股票持续下跌，该笔投资只剩余原始投资本金很小的比例。费雪发现，这些公司的市盈率依旧很低，甚至比买入时还要低。
+
+&gt;几年之后，费雪说道：“**低市盈率并不能保证什么，反而有可能是一个预警信号，指出这家公司可能存在着缺点。**”
+
+格雷厄姆认为，当一只股票的股价被低估时，买入该股票就很安全，很容易获取稳定的投资收益。投资低估值股票策略没错，但一知半解的投资者可能会误用低估值策略，误入“低估值陷阱”。**“低估值陷阱”是指投资者买入估值较低的股票，期待价格上涨或者估值提升，却发现该股票的估值或价格保持不变甚至下降的现象。此类股票表面上估值便宜，但实质上价格昂贵（白白浪费了机会成本）。**虽然价格被低估，但买入此类股票并不安全，不一定能获取稳定投资收益，甚至有可能亏钱。
+---
+## 警惕低估值陷阱-续
+
+- 景气顶点的周期股，尤其是股价已经大幅上涨之后的周期股。
+  - 在宏观经济扩张期或者行业景气度提升之后的后期，诸如钢铁、煤炭、水泥、银行和地产等周期股行业公司的盈利状况非常好，每股净利润非常高，这会导致市盈率等估值看起来非常低。但这种低估值是不可持续的。
+
+- 重资产的“夕阳”行业。
+  - “一匹会算术的马是了不起的马，但绝不是一个了不起的数学家；同样，一家纺织厂经营得再好，也不能证明那是一个好行业。”
+  
+- 具备网络效应行业里面的中小型公司。
+  - 在具备网络效应的行业里，龙头公司同时掌控着上游和下游资源，建立了行业壁垒。业内的中小公司疲于应战，仅能自保，即使股价再便宜，也不值得购买。
+  
+---
+## 警惕低估值陷阱-补
+
+- 经营思路受限，只知道低水平大幅度扩张产能的企业和行业。
+
+
+- 财务报表质量存在瑕疵。
+
+
+- 历史最低位不一定是最低估值，未来可能还有更低估值。
+
+
+---
+
+## 市盈率为负是危险信号
+把市盈率为负值股票的超额年复合收益率作为一项反向指标，**当市盈率为负值的股票的年复合收益率与整体股票的差额不断缩小，甚至转为正值时**，我们就要警醒并反思，牛市是否要结束了。
+
+.center[![:scale 55%](.\基本面量化投资_files\市盈率.png)]
+
+
+---
+## 市净率
+
+&gt;“投资的原则太简单，而简单的东西往往是最难的。这条‘简单’的‘投资’原则是：当你在买一只股票时，你就是在买这家公司！”--段永平
+
+Fama and French(1992)发现贝塔、股票市值和账面市值比（B/M）三个因素可以解释绝大部分的股票价格变动，即所谓著名的三因子模型。
+
+而账面市值比的倒数就是（约等于）市净率，粗略的讲，就是对于每股净资产，投资者愿意花多少钱来买。因此市净率低也就意味着相对而言这只股票比较“便宜”。
+
+
+---
+## 价值股与成长股
+价值股与成长股存在跷跷板效应：价值股流行的时候，成长股可能表现不佳；成长股流行的时候，价值股可能表现不佳。
+
+.pull-left[
+![](.\基本面量化投资_files\价值与成长1.png)
+]
+.pull-right[
+![](.\基本面量化投资_files\价值与成长2.png)
+]
+     
+
+---
+## 反转的间隔/切换
+
+&gt;“现在已然衰朽者，将来可能重放异彩。现在备受青睐者，将来可能黯然失色。”
+
+
+美国股票市场与中国一样，价值股与成长股表现出非常强烈的跷跷板效应。当价值股表现优异时，成长股表现非常差劲；当成长股格外优秀时，价值股表现非常差劲。
+
+&lt;br&gt;
+然而，与中国价值股和成长股风格切换速度较快相比，美国股票市场切换速度非常慢。**从2002年1月至2021年9月共18年9个月，中国大盘股票池共经历了4轮价值股与成长股的切换，而美国大盘股仅仅经历了1轮价值股与成长股的切换。**
+
+---
+# 股票类型
+
+.center[![:scale 65%](.\基本面量化投资_files\股票类型.png)]
+
+---
+
+
+
+
+---
+class: center, middle
+
+# Thank you for listening!
+
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
+<script>var slideshow = remark.create({
+"slideNumberFormat": "%current%",
+"highlightStyle": "github",
+"highlightLines": true,
+"ratio": "14:9",
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

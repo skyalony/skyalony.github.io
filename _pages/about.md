@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-I am a senior year undergraduate student from the [School of Economics, HUST](http://eco.hust.edu.cn/), where I major in Economic Statistics. I will be commencing my graduate studies at RUC. My research interests include labor economics, environmental economics, development economics, and corporate governance. I also have an occasional interest in statistics, particularly in areas related to causal inference questions.
+I am a graduate student from the [School of Labor and Human Resources, RUC](http://slhr.ruc.edu.cn/), where I major in Labor Economics. My research interests include labor economics, with a focus on family economics and education economics.
 
 you can find my CV here:[zhiqi's Curriculum Vitae](.../assets/Curriculum_Vitae.pdf)
 

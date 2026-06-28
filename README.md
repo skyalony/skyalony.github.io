@@ -1,12 +1,18 @@
 # Zhiqi Wang Personal Academic Website
 
-This is a lightweight static academic website. It is designed for GitHub Pages and
-does not require Hugo, Node, or a local build step.
+This is a lightweight static academic website. Edit the Markdown files in
+`content/`, then run `python scripts/build_site.py` to regenerate the HTML
+pages for GitHub Pages.
 
 ## Files
 
-- `index.html`: homepage content and main profile sections
-- `research.html`, `notes.html`, `blogs.html`, `teaching.html`: standalone secondary pages
+- `content/home.md`: homepage content
+- `content/research.md`: research and papers
+- `content/notes.md`: notes list
+- `content/blogs.md`: blog list
+- `content/teaching.md`: teaching list
+- `scripts/build_site.py`: Markdown-to-HTML generator
+- `index.html`, `research.html`, `notes.html`, `blogs.html`, `teaching.html`: generated pages
 - `assets/css/style.css`: visual design and responsive layout
 - `assets/js/site.js`: mobile navigation and current year
 - `assets/img/headshot.png`: profile photo
@@ -16,7 +22,13 @@ does not require Hugo, Node, or a local build step.
 
 ## Local Preview
 
-Open `index.html` in a browser.
+After editing Markdown, run:
+
+```powershell
+python scripts/build_site.py
+```
+
+Then open `index.html` in a browser.
 
 ## Publish on GitHub Pages
 
@@ -30,6 +42,6 @@ Open `index.html` in a browser.
 ## Next Content to Add
 
 - The current headshot is stored at `assets/img/headshot.png`.
-- Put the CV at `files/cv.pdf`, then update CV links across the HTML pages.
-- Replace placeholder papers in `research.html`.
+- Put the CV at `files/cv.pdf`, then update CV links in `scripts/build_site.py`.
+- Replace placeholder papers in `content/research.md`.
 - Replace placeholder notes and blog links when ready.

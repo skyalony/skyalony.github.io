@@ -1,8 +1,22 @@
 # Updating the Website
 
-The site is intentionally simple. Main profile content is in `index.html`;
-research output is in `research.html`; notes, blogs, and teaching are in their
-own pages.
+The site is intentionally simple. Edit Markdown files in `content/`; do not edit
+the generated HTML directly unless you are changing structure. After editing,
+run:
+
+```powershell
+python scripts/build_site.py
+```
+
+Then preview `index.html` in a browser.
+
+Content files:
+
+- `content/home.md`: homepage, research highlights, contact
+- `content/research.md`: working papers and publications
+- `content/notes.md`: notes
+- `content/blogs.md`: blogs
+- `content/teaching.md`: teaching
 
 ## Replace the Headshot
 
@@ -18,7 +32,7 @@ The current homepage uses:
 assets/img/headshot.png
 ```
 
-Then in each HTML page, change:
+Then in `scripts/build_site.py`, change:
 
 ```html
 src="assets/img/headshot.png"
@@ -38,7 +52,7 @@ Save the PDF as:
 files/cv.pdf
 ```
 
-Then replace this path across the HTML pages:
+Then replace this path in `scripts/build_site.py`:
 
 ```html
 files/cv-placeholder.html
@@ -52,7 +66,7 @@ files/cv.pdf
 
 ## Add a Paper
 
-Copy one existing `.paper` block in `research.html`, then edit:
+Copy one existing paper block in `content/research.md`, then edit:
 
 - status and year
 - title
@@ -64,14 +78,22 @@ Place paper PDFs in `files/`.
 
 ## Update Notes or Blogs
 
-Edit `notes.html` or `blogs.html`. Each item in those pages is a simple list
-entry with a link and one short description.
+Edit `content/notes.md` or `content/blogs.md`. Each item is a simple list entry
+with a link and one short description.
 
 ## Update Teaching
 
-Edit `teaching.html`. Keep each teaching record as one concise list item.
+Edit `content/teaching.md`. Keep each teaching record as one concise list item.
 
 ## Deployment
 
-After editing, push to GitHub. If GitHub Pages is configured to use GitHub
-Actions, the workflow deploys automatically.
+After editing Markdown, rebuild the HTML, commit, and push to GitHub:
+
+```powershell
+python scripts/build_site.py
+git add .
+git commit -m "Update website content"
+git push origin main:master
+```
+
+GitHub Pages deploys automatically after the push.
